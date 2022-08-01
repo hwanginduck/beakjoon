@@ -1,14 +1,18 @@
 package Beakjoon_E;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public class E_Selfnum {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-		int sfnum[] = new int[10000];
-		
+//		상수를 구해서 넣을 list 생성
+		Collection ssnum = new ArrayList();
+//		for문을 돌려 10,000보다 작은 상수를 모두 구해서 리스트에 넣기
 		for(int i=0; i<10000; i++)
 		{
 			int a = i/10000;  		// 9999 = 0
@@ -19,14 +23,57 @@ public class E_Selfnum {
 			
 			int x = a + b + c + d + e + i;
 			
+			if(x<=10000)
+			{
+				ssnum.add(x);
+			}
+			
 		}
-		Arrays.sort(sfnum);
+//		리스트에 상수 정렬
+//		Collections.sort(ssnum);
+//		상수 입력 확인
+//		System.out.println(ssnum);
 		
-		int selfnumber[] = new int [10000];
-		
-		for(int a=0; a<10000; a++)
+//		상수랑 비교할 리스트 생성
+		Collection num1 = new ArrayList();
+		for(int i=0; i<10000; i++)
 		{
-			System.out.println(sfnum[a]);
+			num1.add(i);
 		}
+		
+		List<String> targertList1 = new ArrayList<String>(ssnum);
+		List<String> targertList2 = new ArrayList<String>(num1);
+		
+//		targertList1.removeAll( num1 );
+		targertList2.removeAll( ssnum );
+		
+//		System.out.println("ssnum" + targertList1.toString());
+		System.out.println("num1" + targertList2.toString());
+
+		String selfnum []  = targertList2.toArray(new String[targertList2.size()]);
+		
+		for(int i=0; i<selfnum.length; i++)
+		{
+			System.out.println(selfnum[i]);
+		}
+		
+		
+		
+		
+		
+//		ArrayList selfnumber = new ArrayList();
+//		
+//		selfnumber.add(targertList2.toString());
+//	
+//		System.out.println(selfnumber);
+//		
+////		String selfnum[] = new String[selfnumber.size()];
+////		
+////		for(int i = 0; i<selfnumber.size(); i++)
+////		{
+////			selnum[i] = 
+////		}
+		
+		
 	}
 }
