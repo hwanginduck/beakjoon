@@ -1,18 +1,15 @@
 package Beakjoon_E;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 public class E_Selfnum {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-//		상수를 구해서 넣을 list 생성
-		Collection ssnum = new ArrayList();
-//		for문을 돌려 10,000보다 작은 상수를 모두 구해서 리스트에 넣기
+//		상수를 넣기 위한 list 생
+		List<Integer> ssnum = new ArrayList();
+//		상수를 구하기 각 자리수의 정수를 구해서 계산한다.
 		for(int i=0; i<10000; i++)
 		{
 			int a = i/10000;  		// 9999 = 0
@@ -20,60 +17,32 @@ public class E_Selfnum {
 			int c = i%1000/100;		// 9999 = 9999%1000 =999/100 = 9
 			int d = i%100/10;		// 9999 = 9999%100 =99/10 = 9
 			int e = i%10; 			// 9999 = 9999%10 = 9
-			
 			int x = a + b + c + d + e + i;
-			
+//			문제에서 말하는 10,000보다 작은 값을 위해서 조건식을 걸어줌
 			if(x<=10000)
 			{
 				ssnum.add(x);
 			}
-			
 		}
-//		리스트에 상수 정렬
-//		Collections.sort(ssnum);
-//		상수 입력 확인
-//		System.out.println(ssnum);
-		
-//		상수랑 비교할 리스트 생성
-		Collection num1 = new ArrayList();
+//		상수랑 비교를 할 1~10,000까지를 모두 넣은 비교 list 생성
+		List<Integer> selfnum = new ArrayList();
 		for(int i=0; i<10000; i++)
 		{
-			num1.add(i);
+			selfnum.add(i);
 		}
-		
-		List<String> targertList1 = new ArrayList<String>(ssnum);
-		List<String> targertList2 = new ArrayList<String>(num1);
-		
-//		targertList1.removeAll( num1 );
-		targertList2.removeAll( ssnum );
-		
-//		System.out.println("ssnum" + targertList1.toString());
-		System.out.println("num1" + targertList2.toString());
-
-		String selfnum []  = targertList2.toArray(new String[targertList2.size()]);
-		
-		for(int i=0; i<selfnum.length; i++)
+//		1~10,000까지 모두 넣은 리스와 상수를 비교해서 상수를 제거
+		selfnum.removeAll(ssnum);
+//		문제에서 원하는 형식으로 출력하기 위한 배열생성
+		int[] selfnumber = new int[selfnum.size()];
+//		리스트를 배열에 차례대로 넣어준다.
+		for(int i=0; i<selfnum.size(); i++)
 		{
-			System.out.println(selfnum[i]);
+			selfnumber[i] = selfnum.get(i).intValue();
 		}
-		
-		
-		
-		
-		
-//		ArrayList selfnumber = new ArrayList();
-//		
-//		selfnumber.add(targertList2.toString());
-//	
-//		System.out.println(selfnumber);
-//		
-////		String selfnum[] = new String[selfnumber.size()];
-////		
-////		for(int i = 0; i<selfnumber.size(); i++)
-////		{
-////			selnum[i] = 
-////		}
-		
-		
+//		출력
+		for(int i=0; i<selfnumber.length; i++)
+		{
+			System.out.println(selfnumber[i]);
+		}
 	}
 }
