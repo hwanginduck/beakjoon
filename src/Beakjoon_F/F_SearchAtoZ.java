@@ -19,17 +19,18 @@ public class F_SearchAtoZ {
 				search[i] = ask;
 			}
 			int AtoZ[] = new int[26];
-			for(int i1=0; i1<s.length(); i1++)
+		
+			for(int i1=0; i1<26; i1++)
 			{
-				for(int i2=0; i2<26; i2++)
+				for(int i2=0; i2<search.length; i2++)
 				{
-					if(search[i1] == i2+97)
+					if(search[i2] == i1+97)
 					{
-						AtoZ[i2] = i2;
+						AtoZ[i1] = i2;
 						break;
-					}else
+					}
 					{
-						AtoZ[i2] = -1;
+						AtoZ[i1] = -1;
 					}
 				}
 			}
@@ -44,4 +45,3 @@ public class F_SearchAtoZ {
 	}
 }
 
-//1 0 -1 -1 2 -1 -1 -1 -1 4 3 -1 -1 7 5 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
