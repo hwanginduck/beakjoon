@@ -8,8 +8,11 @@ public class F_SearchAtoZ {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+//		bufferedreader 객체 생성
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		bufferedreader를 사용하기 위한 try ~ catch
 		try {
+//			
 			String s = br.readLine();
 			int search[] = new int[s.length()];
 			for(int i=0; i<s.length(); i++)
