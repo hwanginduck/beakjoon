@@ -15,6 +15,13 @@ public class F_WordStudy {
 			
 			
 			
+			for(int i=0; i<word.length(); i++)
+			{
+				char a = word.charAt(i);
+				int ask = a;
+			}	
+			
+			
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
