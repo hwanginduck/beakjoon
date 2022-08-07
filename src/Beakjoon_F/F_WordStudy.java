@@ -29,18 +29,26 @@ public class F_WordStudy {
 			
 			int MaxCount = 0; //많이 나온 횟수
 			int ManyAlpha = 0; //어떤 알파벳이 많이 나왓는지 확인
+			int SecondCount = 0;
 			
 			for(int i=0; i<count.length; i++) {
 				if(MaxCount < count[i]) {
 					MaxCount = count[i];
 					ManyAlpha = i;
-				}		
+				}else if(MaxCount == count[i]) {
+					SecondCount = count[i];
+				}
 			}
+			
 			ManyAlpha = ManyAlpha+65;
 			char printAlpha = (char)ManyAlpha;
 			String printprint = String.valueOf(printAlpha);
 			
-			System.out.println("최다 출현 알파벳은 " +printprint +"최다 횟수는 " +MaxCount);
+			if(MaxCount != SecondCount) {
+				System.out.println(printprint);
+			} else if(MaxCount == SecondCount) {
+				System.out.println("?");
+			}
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
